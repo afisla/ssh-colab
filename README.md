@@ -66,7 +66,6 @@ Paste the command in your **local terminal** (not Colab). Done.
 | Package | Purpose |
 |---------|---------|
 | `openssh-server` | SSH daemon |
-| `netcat-openbsd` | TCP relay connection (`nc`) |
 | `curl` | Download Afisla client |
 | `afisla` | Tunnel client ([afisla.web.id](https://afisla.web.id)) |
 
@@ -97,39 +96,6 @@ That's it. Login is always **root** with password set by Colab.
 
 - Google account (for Colab)
 - `ssh` client on your local machine
-- `nc` (netcat) on your local machine for the proxy command
-
-### Install netcat locally
-
-<details>
-<summary>macOS</summary>
-
-```bash
-brew install netcat
-```
-
-</details>
-
-<details>
-<summary>Ubuntu / Debian</summary>
-
-```bash
-sudo apt install netcat-openbsd
-```
-
-</details>
-
-<details>
-<summary>Windows (PowerShell)</summary>
-
-Netcat is available via WSL or you can use `plink` from PuTTY.
-
-```bash
-# WSL
-sudo apt install netcat-openbsd
-```
-
-</details>
 
 ## Troubleshooting
 
@@ -138,7 +104,6 @@ sudo apt install netcat-openbsd
 | No relay port shown | Wait 15-30s for Afisla to connect |
 | `Connection refused` | Re-run all cells |
 | Colab session dies | Re-run — cleanup handles stale processes |
-| `nc: command not found` | Install netcat locally (see above) |
 
 ---
 
