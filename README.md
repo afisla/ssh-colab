@@ -4,7 +4,7 @@
 
 ### SSH Tunneling via Google Colab with Cloudflare
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/afisla/ssh-colab/blob/master/ssh-colab-afisla.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/afisla/ssh-colab/blob/main/ssh-colab-afisla.ipynb)
 
 ---
 
