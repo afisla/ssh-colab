@@ -50,6 +50,7 @@ When ready, the notebook outputs:
 ```
 [AFISLA TUNNEL READY]
 User     : root
+Password : Zavin123
 Port Relay: 12345
 
 Copy & run this in your local terminal:
@@ -87,6 +88,7 @@ Edit these in the first cell:
 
 ```python
 SSH_PORT = 2222          # SSH server port
+ROOT_PASSWORD = "Zavin123"  # SSH password
 ```
 
 That's it. Login is always **root** with password set by Colab.
