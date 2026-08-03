@@ -18,6 +18,60 @@
 
 </div>
 
+## Kodexplorer Notebook (SSH + File Manager)
+
+[![Open Kodexplorer In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/afisla/ssh-colab/blob/main/Kodexplorer.ipynb)
+
+`Kodexplorer.ipynb` menjalankan layanan gabungan:
+
+- SSH Server di port `2222` melalui Afisla tunnel
+- KODExplorer (web file manager) di port `8008` melalui Afisla tunnel domain `phpfile`
+
+Saat tunnel aktif, output utama yang akan muncul:
+
+```text
+[AFISLA TUNNELS ACTIVE]
+SSH User       : root
+SSH Password   : <ROOT_PASSWORD>
+SSH Relay Port : <RELAY_PORT>
+KODExplorer URL: https://phpfile.afisla.web.id
+```
+
+Perintah SSH yang dihasilkan:
+
+```bash
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=30 -o PreferredAuthentications=password -o ProxyCommand='nc relay.afisla.web.id <RELAY_PORT>' root@127.0.0.1 -p 2222
+```
+
+### Konfigurasi `Kodexplorer.ipynb`
+
+Atur variabel berikut di awal cell:
+
+```python
+SSH_PORT = 2222
+ROOT_PASSWORD = "Zavin123"
+KODEXPLORER_PORT = 8008
+KODEXPLORER_DIR = "/content/kodexplorer"
+KODEXPLORER_DOMAIN = "phpfile"
+```
+
+### Dependensi yang dipasang otomatis (Kodexplorer)
+
+- `openssh-server`, `curl`, `git`, `unzip`
+- `php`, `php-cli`, `php-zip`, `php-mbstring`, `php-xml`, `php-curl`, `php-gd`
+- Afisla tunnel client (`/usr/local/bin/afisla`)
+- `opencode-ai` (via NVM + Node.js 24)
+
+### Alur kerja notebook `Kodexplorer.ipynb`
+
+1. Cleanup proses lama (`cloudflared`, `afisla`, `sshd`, `php`, dll)
+2. Install dependensi sistem dan client Afisla
+3. Clone `KODExplorer` ke `/content/kodexplorer`
+4. Jalankan PHP built-in server di port `8008`
+5. Setup dan jalankan SSHD di port `2222`
+6. Jalankan 2 tunnel Afisla (SSH + KODExplorer)
+7. Monitor proses dan tampilkan dashboard HTML + heartbeat
+
 ## What is this?
 
 A single-click notebook that turns Google Colab into a **free SSH server** with public access via [Afisla TCP Relay](https://afisla.web.id).
