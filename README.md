@@ -62,6 +62,15 @@ KODEXPLORER_DOMAIN = "phpfile"
 - Afisla tunnel client (`/usr/local/bin/afisla`)
 - `opencode-ai` (via NVM + Node.js 24)
 
+### Powered by (GitHub)
+
+- Afisla Tunnel Client: https://github.com/afisla/tunnel
+- KODExplorer: https://github.com/kalcaddle/KODExplorer
+- OpenSSH Portable: https://github.com/openssh/openssh-portable
+- PHP: https://github.com/php/php-src
+- NVM: https://github.com/nvm-sh/nvm
+- opencode-ai: https://github.com/sst/opencode
+
 ### Alur kerja notebook `Kodexplorer.ipynb`
 
 1. Cleanup proses lama (`cloudflared`, `afisla`, `sshd`, `php`, dll)
